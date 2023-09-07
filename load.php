@@ -1,6 +1,6 @@
 <?php
 // Configurações do banco de dados
-$servername = "www.db4free.net"; // Nome do servidor
+$servername = "www.db4free.net:porta"; // Substitua 'porta' pela porta real do seu servidor
 $username = "noticias_mu_user"; // Nome de usuário do banco de dados
 $password = "n0ticias_mu_456"; // Senha do banco de dados
 $dbname = "noticias_municip"; // Nome do banco de dados
