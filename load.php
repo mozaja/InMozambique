@@ -1,27 +1,28 @@
 <?php
 // Configurações do banco de dados
-$servername = "www.db4free.net:3306"; // Substitua 'porta' pela porta real do seu servidor
-$username = "noticias_mu_user"; // Nome de usuário do banco de dados
-$password = "n0ticias_mu_456"; // Senha do banco de dados
-$dbname = "noticias_municip"; // Nome do banco de dados
+$servername = "www.db4free.net";
+$port = 3306; // Porta do banco de dados (substitua pela porta correta, se necessário)
+$username = "noticias_mu_user";
+$password = "n0ticias_mu_456";
+$dbname = "noticias_municip";
 
 // Cria uma conexão com o banco de dados
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname, $port);
 
 // Verifica a conexão
-if ($conn->connect_error) {
-    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+if (!$conn) {
+    die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
 }
 
 // Consulta SQL para recuperar notícias
 $sql = "SELECT * FROM Noticias";
 
-$result = $conn->query($sql);
+$result = mysqli_query($conn, $sql);
 
 // Verifica se há resultados
-if ($result->num_rows > 0) {
+if (mysqli_num_rows($result) > 0) {
     // Loop através dos resultados e exibe as notícias
-    while ($row = $result->fetch_assoc()) {
+    while ($row = mysqli_fetch_assoc($result)) {
         echo "Título: " . $row["Titulo"] . "<br>";
         echo "Conteúdo: " . $row["Conteudo"] . "<br>";
         echo "Data de Publicação: " . $row["DataPublicacao"] . "<br>";
@@ -34,5 +35,5 @@ if ($result->num_rows > 0) {
 }
 
 // Fecha a conexão com o banco de dados
-$conn->close();
+mysqli_close($conn);
 ?>
