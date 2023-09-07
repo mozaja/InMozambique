@@ -2,10 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=load.php">
-    <title>Redirecionando...</title>
+    <title>Carregar Conteúdo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#carregarConteudo").click(function () {
+                $.ajax({
+                    url: 'load.php', // URL da página a ser carregada
+                    type: 'GET',
+                    dataType: 'html', // Tipo de dados esperado
+                    success: function (data) {
+                        // Exibe o conteúdo da página em uma div com o ID "conteudo"
+                        $("#conteudo").html(data);
+                    },
+                    error: function () {
+                        alert('Erro ao carregar o conteúdo.');
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-    <p>Se você não for redirecionado, <a href="load.php">clique aqui</a>.</p>
+    <button id="carregarConteudo">Carregar Conteúdo</button>
+    <div id="conteudo"></div>
 </body>
 </html>
