@@ -1,11 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Carregar Conteúdo</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Othene - Venda de Comida</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <p>Aldo Fernando Macedo Bacalhau</p>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md ring-2 ring-green-300 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <img style="width:180px" src="logo.png"/>
+                <button id="menu-button" class="text-gray-600 hover:text-gray-800 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+<div class="py-6 flex justify-center">
+    <h1 class="text-xl font-bold text-green-500">Pratos disponiveis - Segunda Feira</h1>
+</div>
+    <!-- Main Content -->
+    <main class="py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 gap-4">
+                 <!-- Food Item 1 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openModal('Comida 1', 'Ingredientes da comida 1', 'https://img.freepik.com/free-photo/closeup-roasted-meat-with-sauce-vegetables-fries-plate-table_181624-35847.jpg?ga=GA1.1.348275173.1736673047&semt=ais_hybrid')">
+    <img src="https://img.freepik.com/free-photo/closeup-roasted-meat-with-sauce-vegetables-fries-plate-table_181624-35847.jpg?ga=GA1.1.348275173.1736673047&semt=ais_hybrid" alt="Comida 1" class="w-full h-48 object-cover">
+    <div class="p-4">
+        <h2 class="text-lg font-bold text-gray-800">Comida 1</h2>
+        <p class="text-gray-600">Descrição breve da comida 1.</p>
+        <div class="mt-2">
+            <span class="text-xl font-bold text-green-500">350 MT</span>
+        </div>
+    </div>
+</div>
+
+<!-- Food Item 2 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="openModal('Comida 2', 'Ingredientes da comida 2', 'https://img.freepik.com/premium-photo/japanese-curry-rice-with-sliced-pork-carrot-onions_1339-96398.jpg?ga=GA1.1.348275173.1736673047&semt=ais_hybrid')">
+    <img src="https://img.freepik.com/premium-photo/japanese-curry-rice-with-sliced-pork-carrot-onions_1339-96398.jpg?ga=GA1.1.348275173.1736673047&semt=ais_hybrid" alt="Comida 2" class="w-full h-48 object-cover">
+    <div class="p-4">
+        <h2 class="text-lg font-bold text-gray-800">Comida 2</h2>
+        <p class="text-gray-600">Descrição breve da comida 2.</p>
+        <div class="mt-2">
+            <span class="text-xl font-bold text-green-500">280 MT</span>
+        </div>
+    </div>
+</div>
+                <!-- Food Items (omitted for brevity) -->
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-4 rounded-lg w-11/12 max-w-md relative">
+            <!-- Fechar Modal (X) -->
+            <button id="close-modal" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 text-xl font-bold p-2 bg-white">
+                X
+            </button>
+
+            <img id="modal-image" src="" alt="Imagem do Prato" class="w-full h-48 object-cover rounded-t-lg">
+            <div class="p-4">
+                <h2 id="modal-title" class="text-xl font-bold mb-2">Nome do Prato</h2>
+                <p id="modal-ingredients" class="mb-4">Ingredientes...</p>
+                <button id="whatsapp-button" class="w-full bg-green-500 text-white py-2 px-4 rounded-lg text-center font-semibold hover:bg-green-600 animate-pulse">
+                    Pedir pelo WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="info-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-6 rounded-lg w-11/12 max-w-md relative">
+            <!-- Fechar Info Modal (X) -->
+            <button id="close-info-modal" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 text-xl font-bold p-2 bg-white">
+                X
+            </button>
+            <h2 class="text-xl font-bold mb-4">Informações de Contato</h2>
+            <p>Operamos em Nacala - Porto. </br> Para mais informações, ligue para <strong> 87 5932 690 </strong>, ou contacte o WhatsApp 8305454924.</p>
+            <p class="mt-2">Somos a Othene, trazemos a comida até si.</p>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal de prato
+        function openModal(title, ingredients, imageUrl) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-ingredients').innerText = ingredients;
+            document.getElementById('modal-image').src = imageUrl;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        // Fechar o modal de prato ao clicar fora dele
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('modal')) {
+                document.getElementById('modal').classList.add('hidden');
+            }
+        });
+
+        // Fechar o modal de prato ao clicar no botão X
+        document.getElementById('close-modal').addEventListener('click', () => {
+            document.getElementById('modal').classList.add('hidden');
+        });
+
+        // Redirecionar para o WhatsApp
+        document.getElementById('whatsapp-button').addEventListener('click', () => {
+            window.open('https://wa.me/seu-numero-de-whatsapp', '_blank');
+        });
+
+        // Função para abrir o modal de informações
+        document.getElementById('menu-button').addEventListener('click', () => {
+            document.getElementById('info-modal').classList.remove('hidden');
+        });
+
+        // Fechar o modal de informações ao clicar no botão X
+        document.getElementById('close-info-modal').addEventListener('click', () => {
+            document.getElementById('info-modal').classList.add('hidden');
+        });
+
+        // Fechar o modal de informações ao clicar fora dele
+        document.getElementById('info-modal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('info-modal')) {
+                document.getElementById('info-modal').classList.add('hidden');
+            }
+        });
+    </script>
+
 </body>
-</html>
+            </html>
+    
