@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InMozambique - Guias Turísticos</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .news-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .slick-prev:before, .slick-next:before {
+            color: black; /* Cor das setas do carousel */
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            z-index: 1000;
+        }
+        .lista-box h3{
+            color: rgba(15, 138, 11, 0.801);
+        }
+        .news-card{
+            padding: 4px;
+        }
+        .news-card img {
+            border-radius: 12px;
+            object-fit: cover;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto">
+        <!-- Header -->
+        <header class="flex justify-between items-center my-8 mb-16">
+            <h1 onclick="location.href='index.html'" class="text-xl font-bold" style="color: rgb(255, 255, 255); background-color:#B2D2A4; padding: 6px; border-radius: 1px;">In Mozambique</h1>
+        </header>
+        <section class="bg-green-600 text-white py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl font-bold mb-4">Explore Moçambique com Guias Locais</h1>
+                <p class="text-xl mb-8">Encontre e contrate os melhores guias turísticos para explorar as belezas de Moçambique.</p>
+            </div>
+        </section>
+        <!-- Carousel -->
+        <div class="p-4">
+            <div class="carousel mb-8 m-3">
+                <div class="rounded-lg" style="border-bottom: solid 5px #B2D2A4; overflow: hidden;"><img src="img/1729522612750.jpg" alt="Image 1" class="w-full h-64 object-cover"></div>
+                <div class="rounded-lg" style="border-bottom: solid 5px #B2D2A4; overflow: hidden;"><img src="img/1729522612835.jpg" alt="Image 2" class="w-full h-64 object-cover"></div>
+                <div class="rounded-lg" style="border-bottom: solid 5px #B2D2A4; overflow: hidden;"><img src="img/1729522612835.jpg" alt="Image 3" class="w-full h-64 object-cover"></div>
+            </div>
+        </div>
+
+        <div class="mt-20 mb-8 text-gray-600 p-4" style="font-family: montserrat;">
+            <p class="text-xl font-bold mb-2">Selecione um local turistico e tenha acesso a todos guias</p>
+         </div>
+         <div class="flex justify-center items-center p-6">
+            <div class="relative w-full max-w-md">
+                <!-- Input de Pesquisa -->
+                <input
+                    type="text"
+                    placeholder="Pesquisar..."
+                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                />
+                <!-- Ícone de Pesquisa -->
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+        <!-- News Feed -->
+        <div class="space-y-6 lista-box pb-24 p-4">
+            <!-- Ilha de Moçambique -->
+            <div class="news-card bg-white rounded-lg overflow-hidden shadow-lg flex justify-between items-center">
+                <img src="img/ilhaDeMozambique.jpg" alt="Ilha de Moçambique" class="w-1/3 md:w-1/3 h-48 object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-l font-bold mb-2">Ilha de Moçambique</h3>
+                    <p class="text-gray-700 mb-4">Um Patrimônio Mundial da UNESCO, a Ilha de Moçambique é um local histórico repleto de arquitetura colonial</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-thumbs-up mr-2"></i>
+                        <span>(+1) | 95% Recomendam</span>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Arquipélago de Bazaruto -->
+            <div class="news-card bg-white rounded-lg overflow-hidden shadow-lg flex justify-between items-center">
+                <img src="img/bazaruto.jpg" alt="Arquipélago de Bazaruto" class="w-1/3 md:w-1/3 h-48 object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-l font-bold mb-2">Arquipélago de Bazaruto</h3>
+                    <p class="text-gray-700 mb-4">Um paraíso tropical com praias de areia branca, águas cristalinas...</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-thumbs-up mr-2"></i>
+                        <span>(+1) | 98% Recomendam</span>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Praia do Tofo -->
+            <div class="news-card bg-white rounded-lg overflow-hidden shadow-lg flex justify-between items-center">
+                <img src="img/2024-01-30.jpg" alt="Praia do Tofo" class="w-1/3 md:w-1/3 h-48 object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-l font-bold mb-2">Praia do Tofo</h3>
+                    <p class="text-gray-700 mb-4"> Praia do Tofo é um paraíso para mergulhadores aqui, você pode nadar com tubarões-baleia e raias-manta.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-thumbs-up mr-2"></i>
+                        <span>(+1) | 97% Recomendam</span>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Parque Nacional da Gorongosa -->
+            <div class="news-card bg-white rounded-lg overflow-hidden shadow-lg flex justify-between items-center">
+                <img src="img/gorongoza.jpg" alt="Parque Nacional da Gorongosa" class="w-1/3 md:w-1/3 h-48 object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-l font-bold mb-2">Parque Nacional da Gorongosa</h3>
+                    <p class="text-gray-700 mb-4">Conhecido como o "Lugar onde Noé deixou a Arca".</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-thumbs-up mr-2"></i>
+                        <span>(+1) | 96% Recomendam</span>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Distrito de Vilanculos -->
+            <div class="news-card bg-white rounded-lg overflow-hidden shadow-lg flex justify-between items-center">
+                <img src="img/vilanculos.jpg" alt="Distrito de Vilanculos" class="w-1/3 md:w-1/3 h-48 object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-l font-bold mb-2">Distrito de Vilanculos</h3>
+                    <p class="text-gray-700 mb-4">Portal para o Arquipélago de Bazaruto, Vilanculos oferece praias incríveis, passeios de barco.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-thumbs-up mr-2"></i>
+                        <span>(+1) | 94% Recomendam</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-around items-center py-3">
+                <a href="#" class="text-gray-400 hover:text-gray-900">
+                    <i class="fas fa-home text-2xl"></i>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-gray-900">
+                    <i class="fas fa-user-circle text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- jQuery and Slick Carousel -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.news-card').click(function(){
+                window.location.href = '/escolherGuias.html';
+            })
+            $('.carousel').slick({
+                dots: true,          // Mostra os pontos de navegação
+                infinite: true,      // Loop infinito
+                speed: 300,          // Velocidade da transição
+                slidesToShow: 1,     // Quantidade de slides visíveis
+                slidesToScroll: 1,   // Quantidade de slides a rolar
+                autoplay: true,      // Autoplay
+                autoplaySpeed: 2000, // Intervalo do autoplay
+                arrows: true         // Mostra setas de navegação
+            });
+        });
+    </script>
+</body>
+</html>

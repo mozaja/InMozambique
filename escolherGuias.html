@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InMozambique - Guias Turísticos</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .news-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .slick-prev:before, .slick-next:before {
+            color: black; /* Cor das setas do carousel */
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            z-index: 1000;
+        }
+        .lista-box h3 {
+            color: #0F8A0B; /* Verde personalizado */
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #333;
+        }
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .header-bg {
+            background-color: #B2D2A4; /* Verde claro personalizado */
+            padding: 10px;
+        }
+        .guide-image {
+            border-radius: 12px;
+            object-fit: cover;
+            width: 150px;
+            height: 150px;
+        }
+        .carousel-image {
+            border-radius: 12px;
+            object-fit: cover;
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body class="">
+    <div class="container mx-auto">
+        <!-- Header -->
+        <header class="flex justify-between items-center my-8 mb-16">
+            <h1 class="text-xl font-bold text-white header-bg">In Mozambique</h1>
+        </header>
+
+        
+    <!-- Hero Section -->
+    <section class="bg-green-600 text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl font-bold mb-4">Guias disponíveis </h1>
+            <p class="text-xl mb-8">(Ilha de Moçambique)</p>
+        </div>
+    </section>
+
+        <!-- Título da Seção -->
+        <div class="mt-20 mb-8 text-gray-600" style="font-family: 'Montserrat', sans-serif;">
+            <p class="text-xl font-bold mb-2"></p>
+        </div>
+
+        <!-- Lista de Guias -->
+        <div class="space-y-6 lista-box pb-24 p-2">
+            <!-- Guia 1 -->
+            <div class="news-card bg-white rounded-lg overflow-hidden shadow-lg flex justify-between items-center cursor-pointer p-4" onclick="openModal('joao')">
+                <img src="img/images.jpg" alt="Foto do Guia" class="guide-image">
+                <div class="p-4 flex-1">
+                    <h3 class="text-xl font-bold mb-2">João Maputo</h3>
+                    <p class="text-gray-700 mb-2"><strong>Idade:</strong> 32 anos</p>
+                    <p class="text-gray-700 mb-2"><strong>Formação:</strong> Bacharel em Turismo e Hotelaria</p>
+                    <p class="text-gray-700 mb-4"><strong>Línguas:</strong> Português, Inglês, Francês</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-star mr-2 text-yellow-400"></i>
+                        <span>4.8 (125 avaliações)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guia 2 -->
+            <div class="news-card bg-white rounded-lg overflow-hidden shadow-lg flex justify-between items-center cursor-pointer p-4" onclick="openModal('maria')">
+                <img src="img/images (1).jpg" alt="Foto do Guia" class="guide-image">
+                <div class="p-4 flex-1">
+                    <h3 class="text-xl font-bold mb-2">Maria Beira</h3>
+                    <p class="text-gray-700 mb-2"><strong>Idade:</strong> 28 anos</p>
+                    <p class="text-gray-700 mb-2"><strong>Formação:</strong> Licenciada em História e Cultura Moçambicana</p>
+                    <p class="text-gray-700 mb-4"><strong>Línguas:</strong> Português, Inglês, Espanhol</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-star mr-2 text-yellow-400"></i>
+                        <span>4.9 (98 avaliações)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <p class="text-gray-700 mb-2"><strong>Perfil do guia</strong></p>
+                <div class="carousel m-6">
+                    <div><img src="img/images (2).jpg" alt="Foto 1" class="carousel-image"></div>
+                    <div><img src="img/images (3).jpg" alt="Foto 2" class="carousel-image"></div>
+                    <div><img src="img/images (4).jpg" alt="Foto 3" class="carousel-image"></div>
+                </div>
+                <div class="mt-4 text-center">
+                    <a href="https://wa.me/258840000000" target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full flex items-center justify-center space-x-2 pulse">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Contratar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-around items-center py-3">
+                <a href="#" class="text-gray-400 hover:text-gray-900">
+                    <i class="fas fa-home text-2xl"></i>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-gray-900">
+                    <i class="fas fa-user-circle text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery and Slick Carousel -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        // Função para abrir o modal
+        function openModal(guideId) {
+            document.getElementById('modal').style.display = 'flex';
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: true
+            });
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+            $('.carousel').slick('unslick'); // Destruir o carousel ao fechar o modal
+        }
+
+        // Fechar o modal ao clicar fora da área do conteúdo
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
